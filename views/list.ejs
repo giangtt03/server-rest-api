@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách eBooks</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; 
+            height: 100vh; 
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #322f2f, #3e416f);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        td {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Danh sách eBooks</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Currency</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% eBooks.forEach(function(eBook) { %>
+                <tr>
+                    <td><%= eBook.bookId %></td>
+                    <td><%= eBook.title %></td>
+                    <td><%= eBook.author %></td>
+                    <td><%= eBook.price %></td>
+                    <td><%= eBook.currency %></td>
+                    <td>
+                        Pages: <%= eBook.details.pages %>, 
+                        Language: <%= eBook.details.language %>, 
+                        Publisher: <%= eBook.details.publisher %>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
